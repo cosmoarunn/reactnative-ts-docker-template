@@ -1,0 +1,27 @@
+{
+  "name": "on-demand-sass-app",
+  "version": "1.0.0",
+  "description": "Monorepo for on-demand servers (SaaS) app",
+  "type": "module",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "clean": "rimraf node_modules yarn.lock client/node_modules server/node_modules",
+    "clean-install": "rimraf node_modules yarn.lock client/node_modules server/node_modules && yarn install",
+    "build": "yarn workspace server build && yarn workspace client build",
+    "start": "yarn workspace server start & yarn workspace client start",
+    "dev": "yarn workspace server dev & yarn workspace client start",
+    "test": "yarn workspace server test && yarn workspace client test",
+    "lint": "yarn workspace server lint && yarn workspace client lint"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "sequelize": "^6.37.5"
+  }
+}

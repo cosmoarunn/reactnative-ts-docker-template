@@ -1,0 +1,37 @@
+
+{
+    "expo": {
+      "name": "OnDemandServers",
+      "slug": "on-demand-servers", 
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/icon.png", 
+      "userInterfaceStyle": "light",
+      "splash": {
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      },
+      "updates": {
+        "fallbackToCacheTimeout": 0
+      },
+      "assetBundlePatterns": [
+        "**/*"
+      ],
+      "ios": {
+        "supportsTablet": true
+      },
+      "android": {
+        "adaptiveIcon": {
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "web": {
+        "favicon": "./assets/favicon.png"
+      },
+      "extra": {
+        "eas": {
+          "projectId": "YOUR_EAS_PROJECT_ID" // Replace with your EAS project ID
+        }
+      }
+    }
+  }

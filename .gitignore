@@ -1,0 +1,81 @@
+# Gitignore for On-Demand Servers App
+reactnative-ui/
+# Node.js and npm
+node_modules
+package-lock.json
+npm-debug.log
+
+# Frontend (React Native)
+frontend/node_modules
+frontend/package-lock.json
+frontend/.expo/
+frontend/.cache/
+frontend/build/
+frontend/dist/
+frontend/*.apk
+frontend/*.ipa
+frontend/*.xcarchive
+frontend/fastlane/report.json
+frontend/yarn.lock # If using Yarn
+frontend/Podfile.lock # If using CocoaPods for iOS
+frontend/Pods/ # CocoaPods dependencies
+frontend/.DS_Store # macOS specific
+frontend/*.xcconfig # Xcode config files
+frontend/DerivedData/ # Xcode derived data
+frontend/*.pbxproj # Xcode project files
+
+# Backend (Node.js)
+backend/node_modules
+backend/package-lock.json
+backend/dist/
+backend/.env # Environment variables (keep secret!)
+backend/coverage/
+backend/*.log
+
+# Docker
+.dockerignore
+docker-compose.override.yml # If you have one
+.env # Environment variables (keep secret!)
+
+# OS and Editors
+.DS_Store
+.idea/ # IntelliJ IDEA
+.vscode/ # VS Code
+*.swp # Swap files (Vim)
+*~ # Backup files
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+temp/
+tmp/
+
+# Testing
+*.test.js.snap # Jest snapshots
+*.test.tsx.snap # Jest snapshots
+
+# Other
+.DS_Store # macOS specific
+.env # Environment variables (keep secret!) - can be moved to a sample file for the team.
+*.env # Environment variables (keep secret!)
+.history # Bash history
+*.gz # gzip files
+*.tar # tar files
+*.zip # zip files
+*.rar # rar files
+*.7z # 7-zip files
+
+# EAS Build related
+.easignore
+eas.json
+build/
+
+# Ignore .env files in all subdirectories (important for security!)
+.env
+**/.env
+
+# If you use Expo prebuild
+ios/Pods/ # CocoaPods dependencies
+ios/.build/
+android/.build/

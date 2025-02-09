@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src", // Set baseUrl to ./src
+    "paths": {
+      "@utils/*": ["utils/*"], // Example path alias
+      "@models/*": ["models/*"], // Example path alias
+      "@config/*": ["config/*"],
+      "@routes/*": ["routes/*"]
+    },
+    "types": ["node", "jest"]
+  },
+  "include": [
+    "src/**/*.ts"
+, "src/app.ts", "src/server.ts"  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test/**/*.test.ts"
+  ]
+}

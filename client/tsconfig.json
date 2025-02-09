@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": ["es2018"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
+    "baseUrl": "./src", // Set baseUrl to ./src
+    "paths": {
+      "@components/*": ["components/*"], // Example path alias
+      "@navigation/*": ["navigation/*"], // Example path alias
+      "@store/*": ["store/*"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
