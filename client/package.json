@@ -1,5 +1,5 @@
 {
-  "name": "on-demand-saas-frontend",
+  "name": "client",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

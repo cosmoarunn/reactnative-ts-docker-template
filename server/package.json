@@ -1,5 +1,5 @@
 {
-  "name": "on-demand-saas-backend",
+  "name": "server",
   "version": "1.0.0",
   "description": "Serverside backend for on-demand servers app",
   "main": "dist/server.js",
