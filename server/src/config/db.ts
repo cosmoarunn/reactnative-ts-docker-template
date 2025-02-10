@@ -10,7 +10,7 @@ const dbPassword = process.env.DB_PASSWORD;
 
 export const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
     host: dbHost,
-    dialect: 'postgres',
+    dialect: 'sqlite',//'postgres',
     logging: false,
 });
 

@@ -1,11 +1,14 @@
 
 // frontend/src/components/DashboardScreen.tsx
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, SafeAreaView } from 'react-native';
+import {Colors, View, Text, TouchableOpacity, Spacings, Icon, Assets, TextField} from 'react-native-ui-lib';
+
+import {  StyleSheet,  ScrollView, FlatList, SafeAreaView } from 'react-native';
+
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store'; // Import your root state type
 import { useNavigation } from '@react-navigation/native'; // For navigation
-import { Drawer } from 'react-native-paper'; // Or your preferred drawer library
+import {  Drawer } from 'react-native-paper';
 import { RootStackNavigationProp } from '@navigation/types';
 
 interface Server {
@@ -19,6 +22,7 @@ const DashboardScreen: React.FC = () => {
   const navigation = useNavigation<RootStackNavigationProp<'Dashboard'>>();
   const user = useSelector((state: RootState) => state.auth.user); // Access user from Redux
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
+  const [active, setActive] = React.useState('');
 
   const hiredServers: Server[] = [ // Mock data
     { id: '1', name: 'Server A', status: 'Running', region: 'US' },
@@ -42,69 +46,70 @@ const DashboardScreen: React.FC = () => {
   );
 
   return (
-    <SafeAreaView style={{flex:1}}>
-    <View style={styles.container}>
-      {/* Navigation Bar */}
-      <View style={styles.navBar}>
-        <TouchableOpacity onPress={() => setIsDrawerVisible(true)}>
-          <View style={styles.menuButton} />{/* Round menu button */}
-        </TouchableOpacity>
-        <Text style={styles.navTitle}>Dashboard</Text>
-      </View>
+ 
+      <SafeAreaView style={{flex:1}}>
+      <View style={styles.container}>
+      
+        <View style={styles.navBar}>
+          <TouchableOpacity onPress={() => setIsDrawerVisible(true)}>
+            <View style={styles.menuButton} />
+          </TouchableOpacity>
+          <Text style={styles.navTitle}>Dashboard</Text>
+        </View>
 
-      {/* Welcome Message */}
-      <Text style={styles.welcomeText}>Welcome, {user?.username || 'Guest'}!</Text>
+        
+        <Text style={styles.welcomeText}>Welcome, {user?.username || 'Guest'}!</Text>
 
-      {/* Currently Hired Servers */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Currently Hired Servers</Text>
-        {hiredServers.map(server => (
-          <View key={server.id} style={styles.serverItem}>
-            <Text>{server.name}</Text>
-            <Text>{server.status}</Text>
-            <Text>{server.region}</Text>
+      
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Currently Hired Servers</Text>
+          {hiredServers.map(server => (
+            <View key={server.id} style={styles.serverItem}>
+              <Text>{server.name}</Text>
+              <Text>{server.status}</Text>
+              <Text>{server.region}</Text>
+            </View>
+          ))}
+        </View>
+
+        
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Available Servers</Text>
+          <FlatList
+            data={availableServers}
+            renderItem={renderServerItem}
+            keyExtractor={item => item.id}
+            horizontal={false} 
+          />
+        </View>
+
+        
+        <ScrollView style={styles.scrollView}>
+          <View style={styles.component}>
+            <Text>Component 1</Text>
           </View>
-        ))}
+          <View style={styles.component}>
+            <Text>Component 2</Text>
+          </View>
+          
+        </ScrollView>
+        
+        <Drawer.Section title="Some title" >
+          <Drawer.Item
+            label="First Item"
+            active={active === 'first'}
+            onPress={() => setActive('first')}
+          />
+          <Drawer.Item
+            label="Second Item"
+            active={active === 'second'}
+            onPress={() => setActive('second')}
+          />
+        </Drawer.Section>
+        
       </View>
-
-      {/* Available Servers (Scrolling List) */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Available Servers</Text>
-        <FlatList
-          data={availableServers}
-          renderItem={renderServerItem}
-          keyExtractor={item => item.id}
-          horizontal={false} // Vertical list
-        />
-      </View>
-
-      {/* Example of more components in a ScrollView */}
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.component}>
-          <Text>Component 1</Text>
-        </View>
-        <View style={styles.component}>
-          <Text>Component 2</Text>
-        </View>
-        {/* ... more components */}
-      </ScrollView>
-
-      {/* Drawer (Side Menu) */}
-      <Drawer
-        visible={isDrawerVisible}
-        onDismiss={() => setIsDrawerVisible(false)}
-        contentContainerStyle={styles.drawerContent}
-      >
-        {/* Drawer content (navigation links, user profile, etc.) */}
-        <TouchableOpacity onPress={() => {setIsDrawerVisible(false); navigation.navigate('Profile')}}>
-            <Text>Profile</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {setIsDrawerVisible(false); navigation.navigate('Settings')}}>
-            <Text>Settings</Text>
-        </TouchableOpacity>
-      </Drawer>
-    </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    
   );
 };
 
@@ -166,3 +171,23 @@ const styles = StyleSheet.create({
 });
 
 export default DashboardScreen;
+
+/*
+
+
+<Drawer
+          visible={isDrawerVisible}
+          onDismiss={() => setIsDrawerVisible(false)}
+          contentContainerStyle={styles.drawerContent}
+        >
+          
+          <TouchableOpacity onPress={() => {setIsDrawerVisible(false); navigation.navigate('Profile')}}>
+              <Text>Profile</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {setIsDrawerVisible(false); navigation.navigate('Settings')}}>
+              <Text>Settings</Text>
+          </TouchableOpacity>
+        </Drawer>
+
+
+        */

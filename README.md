@@ -1,5 +1,7 @@
 ## Template for React Native - Typescript container app
 
+This template is designed to kickstart  containerized react-native app. Equipped with a well designed core architecture, distinguishing frontend and backend development, this repo provides the necessary base tools to deploy an app in dev or production in no time.
+
 **App Architecture and Development Summary**
 
 Summary & discussion about designing and developing  the app.
@@ -150,11 +152,13 @@ yarn build
 
 ```
 
+To build iOS /Androi, cd to client / frontend folder then,
+
 #### iOS&#x20;
 
 ```
 #npm 
-npm run ios
+npm run build ios
 
 #yarn
 yarn ios

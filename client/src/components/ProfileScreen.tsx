@@ -1,7 +1,3 @@
-You are absolutely correct. My apologies! Here are the missing ProfileScreen.tsx, SettingsScreen.tsx, and the ./store/store.ts file (using Redux Toolkit):
-
-TypeScript
-
 // frontend/src/components/ProfileScreen.tsx
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';

@@ -11,7 +11,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret'; // Replace with 
 export const register = async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
-
+    
     // Check if user already exists
     const existingUser = await User.findOne({ where: { username } });
     if (existingUser) {
@@ -22,15 +22,24 @@ export const register = async (req: Request, res: Response) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create the new user
-    const newUser = await User.create({
-      username, password: hashedPassword,
-      id: 0
-    });
+    const newUser = await User.create({ username, password: hashedPassword  });
 
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
+
+export const getAllUsers = async (req: Request, res: Response) => {
+  try {
+    const users = await User.findAll(); // Or your database query
+    res.json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ message: "Failed to fetch users" });
   }
 };
 

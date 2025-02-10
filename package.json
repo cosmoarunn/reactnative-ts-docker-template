@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "rimraf node_modules yarn.lock client/node_modules server/node_modules",
     "clean-install": "rimraf node_modules yarn.lock client/node_modules server/node_modules && yarn install",
-    "build": "yarn workspace server build && yarn workspace client build",
+    "build": "yarn workspace client build && yarn workspace server build",
     "start": "yarn workspace server start & yarn workspace client start",
     "dev": "yarn workspace server dev & yarn workspace client start",
     "test": "yarn workspace server test && yarn workspace client test",
