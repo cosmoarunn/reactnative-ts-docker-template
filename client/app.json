@@ -21,6 +21,7 @@
       "bundleIdentifier": "com.fgbs.admiral"
     },
     "android": {
+      "package": "com.fgbs.OnDemandServers",
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF"
       }

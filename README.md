@@ -1,105 +1,70 @@
-**## Template for React Native - Typescript container app**
+## Template for React Native - Typescript container app
 
-
-
-
-**### \[\<img height="20" title="Buy Me a Coffee!" src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" />]\(**<u>https://buymeacoffee.com/cosmoarunn</u>**)**
-
-
-
-
-**### App Architecture and Development Summary**
-
-
-
+**App Architecture and Development Summary**
 
 Summary & discussion about designing and developing  the app.
 
+**I. Core Architecture:**
 
+&#x20;	**Frontend (React Native):**
 
+&#x20; 		State Management: Redux or Zustand
 
-**\*\*I. Core Architecture:\*\***
+&#x20; 		Navigation: React Navigation
 
+&#x20; 		UI Library: React Native Paper, React Native Elements
 
+&#x20; 		API Calls: \`fetch\` or \`axios\`
 
+&#x20; 		Background Tasks: React Native Background Actions
 
-\* **\*\*Frontend (React Native):\*\***
+**Backend (Node.js/Express.js):**
 
-&#x20; \* State Management: Redux or Zustand
+&#x20; 		API: RESTful API
 
-&#x20; \* Navigation: React Navigation
+&#x20; 		Authentication: JWT
 
-&#x20; \* UI Library: React Native Paper, React Native Elements
+&#x20; 		Database: PostgreSQL (recommended) or SQLite (for prototyping)
 
-&#x20; \* API Calls: \`fetch\` or \`axios\`
+&#x20; 		Server Management: \`node-ssh\` or cloud provider SDK
 
-&#x20; \* Background Tasks: React Native Background Actions
+&#x20; 		Task Queue: Redis or RabbitMQ
 
-\* **\*\*Backend (Node.js/Express.js):\*\***
+&#x20; 		Caching: Redis
 
-&#x20; \* API: RESTful API
+&#x9;**Server Infrastructure:\*\***
 
-&#x20; \* Authentication: JWT
+&#x20;  	Cloud Provider: AWS, Google Cloud, Azure
 
-&#x20; \* Database: PostgreSQL (recommended) or SQLite (for prototyping)
+&#x20; 	Server Orchestration: Kubernetes or Docker Swarm
 
-&#x20; \* Server Management: \`node-ssh\` or cloud provider SDK
+&#x20; 	Virtual Machines/Containers: Docker
 
-&#x20; \* Task Queue: Redis or RabbitMQ
+&#x20;	Server Templates
 
-&#x20; \* Caching: Redis
+Load Balancing
 
-\* **\*\*Server Infrastructure:\*\***
+**II. Key Features:**
 
-&#x20; \* Cloud Provider: AWS, Google Cloud, Azure
+User Authentication
 
-&#x20; \* Server Orchestration: Kubernetes or Docker Swarm
+Server Management (listing, provisioning, control, details, access)
 
-&#x20; \* Virtual Machines/Containers: Docker
+Billing (hourly, payment gateway integration, invoices)
 
-&#x20; \* Server Templates
+Notifications (server status, billing)
 
-&#x20; \* Load Balancing
+Support (in-app, FAQ)
 
+**III. Technology Stack:**
 
+Frontend: React Native, Redux/Zustand, React Navigation, React Native Paper/Elements
 
+Backend: Node.js, Express.js, PostgreSQL/SQLite, Redis, RabbitMQ/Redis, \`node-ssh\`/Cloud Provider SDK
 
-**\*\*II. Key Features:\*\***
+Server Infrastructure: AWS/Google Cloud/Azure, Kubernetes/Docker Swarm, Docker
 
-
-
-
-\* User Authentication
-
-\* Server Management (listing, provisioning, control, details, access)
-
-\* Billing (hourly, payment gateway integration, invoices)
-
-\* Notifications (server status, billing)
-
-\* Support (in-app, FAQ)
-
-
-
-
-**\*\*III. Technology Stack:\*\***
-
-
-
-
-\* Frontend: React Native, Redux/Zustand, React Navigation, React Native Paper/Elements
-
-\* Backend: Node.js, Express.js, PostgreSQL/SQLite, Redis, RabbitMQ/Redis, \`node-ssh\`/Cloud Provider SDK
-
-\* Server Infrastructure: AWS/Google Cloud/Azure, Kubernetes/Docker Swarm, Docker
-
-
-
-
-**\*\*IV. Development Process:\*\***
-
-
-
+**IV. Development Process:**
 
 1\. Backend API development
 
@@ -111,57 +76,39 @@ Summary & discussion about designing and developing  the app.
 
 5\. Deployment
 
+**V. Development Workflow and Tips:**
 
+Use workspaces in \`package.json\` for monorepo structure.
 
+Configure \`baseUrl\` and \`paths\` in \`tsconfig.json\` after setting up workspaces.
 
-**\*\*V. Development Workflow and Tips:\*\***
+Use a comprehensive \`.gitignore\` file.
 
+Choose between SQLite and PostgreSQL based on your application's needs (PostgreSQL recommended for production).
 
+Docker tips (commands, workflow, troubleshooting).
 
-
-\* Use workspaces in \`package.json\` for monorepo structure.
-
-\* Configure \`baseUrl\` and \`paths\` in \`tsconfig.json\` after setting up workspaces.
-
-\* Use a comprehensive \`.gitignore\` file.
-
-\* Choose between SQLite and PostgreSQL based on your application's needs (PostgreSQL recommended for production).
-
-\* Docker tips (commands, workflow, troubleshooting).
-
-
-
-
-**\*\*VI. Key Improvements and Explanations:\*\***
-
-
-
+**VI. Key Improvements and Explanations:**
 
 Throughout the development, several key improvements has been made to the code and configuration, including:
 
+Correcting script injection in the Vite plugin.
 
+Ensuring consistent filename casing.
 
+Improving the \`LoginScreen\` component and tests, including navigation and Redux integration.
 
-\* Correcting script injection in the Vite plugin.
+Creating \`DashboardScreen\` component and tests.
 
-\* Ensuring consistent filename casing.
+Setting up Sequelize models for PostgreSQL.
 
-\* Improving the \`LoginScreen\` component and tests, including navigation and Redux integration.
+Configuring Docker Compose for SQLite and PostgreSQL.
 
-\* Creating \`DashboardScreen\` component and tests.
+Using workspaces for monorepo management.
 
-\* Setting up Sequelize models for PostgreSQL.
+Creating a robust \`.gitignore\` file.
 
-\* Configuring Docker Compose for SQLite and PostgreSQL.
-
-\* Using workspaces for monorepo management.
-
-\* Creating a robust \`.gitignore\` file.
-
-
-
-
-**\*\*VII. Misc\*\***
+**VII. Misc**
 
 Use workspaces in package.json for monorepo structure.
 
@@ -171,24 +118,17 @@ Use a comprehensive .gitignore file.
 
 Choose between SQLite and PostgreSQL based on your application's needs (PostgreSQL recommended for production).
 
+**VIII.  Building & Running**
 
-
-
-**\*\*VIII. Running\*\***
-
-#### Building
-
-Install packages
-
-
+#### Install packages
 
 ```
+npm install
+#or
 yarn
 ```
 
-run dev server
-
-
+#### dev server
 
 ```
 #npm
@@ -199,11 +139,18 @@ yarn dev
 
 ```
 
+build
 
+```
+#npm
+npm run build
 
-iOS&#x20;
+#yarn
+yarn build
 
+```
 
+#### iOS&#x20;
 
 ```
 #npm 
@@ -217,9 +164,7 @@ cd ios
 pod install
 ```
 
-android
-
-
+#### android
 
 ```
 #npm
@@ -229,11 +174,24 @@ npm run android
 yarn android
 ```
 
+Using Expo or bare React native
 
+1. **Build the App:** You need to build the Android app before you can run it on a device or emulator.
+   * **Expo (Managed workflow):**
+     Bash
+     expo prebuild
+     `npx react-native run-android # or yarn android`
+   * **Bare React Native:**
+     Bash
+     `npx react-native run-android # or yarn android`
+2. **Connect Device or Start Emulator:**
+   * **Physical Device:** If you're using a physical Android device, make sure it's connected to your computer via USB and that USB debugging is enabled on the device. You might also need to install the appropriate USB drivers for your device on your computer.
+   * **Emulator:** If you're using an Android emulator, make sure it's running. You can start an emulator from Android Studio's AVD Manager or from the command line.
+3. **Run the App:** After building the app and connecting your device or starting the emulator, run the app using:
+   Bash
+   `npx react-native run-android # or yarn android`This command will install the app on the device/emulator and then launch it.
 
 #### Docker
-
-
 
 ```
 docker-compose up -d
@@ -246,3 +204,26 @@ docker-compose build
 docker-compose config
 docker-compose pull
 ```
+
+#### Metro bundler cache
+
+Sometimes, Metro's cache can get out of sync. Try clearing the cache
+
+```
+npx react-native start --reset-cache  
+# or
+ yarn start --reset-cache
+
+
+```
+
+**Clean Project or Clean install:**
+
+```
+#clean project:
+npm run clean  or yarn clean
+#clean and install:
+yarn clean-install or yarn clean-install
+```
+
+[<img height="20" title="Buy Me a Coffee!" src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" />](**\<u>https://buymeacoffee.com/cosmoarunn\</u>**)
