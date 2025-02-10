@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // backend/src/app.ts
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const db_1 = __importDefault(require("./config/db")); // Import your database connection
+const db_1 = require("./config/db"); // Import your database connection
 const auth_1 = __importDefault(require("./routes/auth"));
 const servers_1 = __importDefault(require("./routes/servers"));
 const billing_1 = __importDefault(require("./routes/billing"));
@@ -17,8 +17,7 @@ app.use(express_1.default.json());
 app.use('/api/auth', auth_1.default);
 app.use('/api/servers', servers_1.default);
 app.use('/api/billing', billing_1.default);
-db_1.default.connect()
+(0, db_1.connect)()
     .then(() => console.log('Database connected'))
-    .catch(err => console.error('Database connection error:', err));
-const _default = app;
-export { _default as default };
+    .catch((err) => console.error('Database connection error:', err));
+exports.default = app;

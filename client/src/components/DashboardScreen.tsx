@@ -1,4 +1,3 @@
-TypeScript
 
 // frontend/src/components/DashboardScreen.tsx
 import React, { useState } from 'react';
@@ -7,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../store/store'; // Import your root state type
 import { useNavigation } from '@react-navigation/native'; // For navigation
 import { Drawer } from 'react-native-paper'; // Or your preferred drawer library
+import { RootStackNavigationProp } from '@navigation/types';
 
 interface Server {
   id: string;
@@ -16,7 +16,7 @@ interface Server {
 }
 
 const DashboardScreen: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<RootStackNavigationProp<'Dashboard'>>();
   const user = useSelector((state: RootState) => state.auth.user); // Access user from Redux
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 

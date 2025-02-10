@@ -48,3 +48,4 @@ const connect = async () => {
     }
 };
 exports.connect = connect;
+exports.default = exports.sequelize;

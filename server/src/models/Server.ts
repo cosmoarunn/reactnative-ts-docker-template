@@ -1,6 +1,7 @@
 // backend/src/models/Server.ts
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../config/db';
+import { User } from './User';
 
 interface ServerAttributes {
   id: number;

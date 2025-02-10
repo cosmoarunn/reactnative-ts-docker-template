@@ -10,9 +10,10 @@ COPY . .
 
 # Install Expo CLI (if needed) - depends on your setup
 RUN npm install -g expo-cli
+RUN expo cache:clear
 
 # If you're using Expo prebuild
-RUN expo prebuild
+#RUN expo prebuild
 
 # If you're using Expo start
-CMD ["expo", "start", "--dev-client"]yyi
+CMD ["expo", "start", "--dev-client"]

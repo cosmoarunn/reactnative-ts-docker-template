@@ -27,8 +27,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // backend/src/server.ts
-const app_1 = __importDefault(require("./app.js")); // Import the Express app
+const app_js_1 = __importDefault(require("./app.js")); // Import the Express app
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 const port = process.env.PORT || 5100;
-app_1.default.listen(port, () => console.log(`Server running on port ${port}`));
+app_js_1.default.listen(port, () => console.log(`Server running on port ${port}`));

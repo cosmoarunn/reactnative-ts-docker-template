@@ -4,6 +4,7 @@ exports.Server = void 0;
 // backend/src/models/Server.ts
 const sequelize_1 = require("sequelize");
 const db_1 = require("../config/db");
+const User_1 = require("./User");
 exports.Server = db_1.sequelize.define('Server', {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
@@ -36,5 +37,5 @@ exports.Server = db_1.sequelize.define('Server', {
     timestamps: true,
 });
 // Define the association (important!)
-User.hasMany(exports.Server, { foreignKey: 'userId', as: 'servers' }); // A user can have many servers
-exports.Server.belongsTo(User, { foreignKey: 'userId', as: 'user' }); // A server belongs to a user
+User_1.User.hasMany(exports.Server, { foreignKey: 'userId', as: 'servers' }); // A user can have many servers
+exports.Server.belongsTo(User_1.User, { foreignKey: 'userId', as: 'user' }); // A server belongs to a user
